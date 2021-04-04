@@ -6,44 +6,46 @@ import * as S from './styles'
 
 import { gaEvent } from 'utils/ga'
 import Container from 'components/Container'
-import { LogoProps } from 'types/api'
+import { HeaderProps, LogoProps } from 'types/api'
+import { getImageUrl } from 'utils/getImageUrl'
 
 const onClick = () =>
   gaEvent({ action: 'click', category: 'cta', label: 'hero button' })
 
 type Props = {
   logo: LogoProps
+  header: HeaderProps
 }
 
-const SectionHero = ({ logo }: Props) => (
-  <S.Wrapper>
-    <Container>
-      <Logo {...logo} />
+const SectionHero = ({ logo, header }: Props) => {
+  const {
+    title,
+    description,
+    button: { label: buttonLabel, url: buttonUrl },
+    image: { alternativeText: imageAlternativeText, url: imageUrl }
+  } = header
 
-      <S.Content>
-        <S.TextBlock>
-          <S.Title>React Avançado</S.Title>
-          <S.Description>
-            Crie aplicações reais com NextJS, Strapi, GraphQL e mais!
-          </S.Description>
-          <S.ButtonWrapper>
-            <Button
-              href="https://www.udemy.com/course/react-avancado/?couponCode=PROMOABRIL21"
-              onClick={onClick}
-              wide
-            >
-              Comprar
-            </Button>
-          </S.ButtonWrapper>
-        </S.TextBlock>
+  return (
+    <S.Wrapper>
+      <Container>
+        <Logo {...logo} />
 
-        <S.Image
-          src="/img/hero-illustration.svg"
-          alt="Ilustração de um desenvolvedor em frente a um computador com várias linhas de código."
-        />
-      </S.Content>
-    </Container>
-  </S.Wrapper>
-)
+        <S.Content>
+          <S.TextBlock>
+            <S.Title>{title}</S.Title>
+            <S.Description>{description}</S.Description>
+            <S.ButtonWrapper>
+              <Button href={buttonUrl} onClick={onClick} wide>
+                {buttonLabel}
+              </Button>
+            </S.ButtonWrapper>
+          </S.TextBlock>
+
+          <S.Image src={getImageUrl(imageUrl)} alt={imageAlternativeText} />
+        </S.Content>
+      </Container>
+    </S.Wrapper>
+  )
+}
 
 export default SectionHero
