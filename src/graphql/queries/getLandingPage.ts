@@ -1,10 +1,15 @@
 const GET_LANGIND_PAGE = /* GraphQL */ `
+  fragment image on UploadFile {
+    alternativeText
+    url
+  }
+
   fragment logo on LandingPage {
     logo {
-      alternativeText
-      url
+      ...image
     }
   }
+
   fragment header on LandingPage {
     header {
       title
@@ -14,15 +19,26 @@ const GET_LANGIND_PAGE = /* GraphQL */ `
         url
       }
       image {
-        alternativeText
-        url
+        ...image
       }
     }
   }
+
+  fragment sectionAboutProject on LandingPage {
+    sectionAboutProject {
+      title
+      description
+      image {
+        ...image
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
       ...header
+      ...sectionAboutProject
     }
   }
 `
