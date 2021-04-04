@@ -1,7 +1,6 @@
 import { GraphQLClient } from 'graphql-request'
 
-// TODO: criar variável de ambiente para a url do backend
-const client = new GraphQLClient('http://localhost:1337/graphql', {
+const client = new GraphQLClient(process.env.GRAPHQL_HOST, {
   headers: {}
 })
 
