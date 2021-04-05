@@ -45,6 +45,17 @@ export type SectionConceptsProps = {
   conceptItems: [ConceptItem]
 }
 
+export type Module = {
+  title: string
+  subtitle: string
+  description: string
+}
+
+export type SectionModulesProps = {
+  title: string
+  modules: [Module]
+}
+
 // LandingPage props
 export type LandingPageProps = {
   logo: LogoProps
@@ -52,4 +63,5 @@ export type LandingPageProps = {
   sectionAboutProject: SectionAboutProjectProps
   sectionTech: SectionTechProps
   sectionConcepts: SectionConceptsProps
+  sectionModules: SectionModulesProps
 }
