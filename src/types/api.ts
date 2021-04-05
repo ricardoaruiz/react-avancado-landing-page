@@ -36,10 +36,20 @@ export type SectionTechProps = {
   techIcons: [TechIcon]
 }
 
+export type ConceptItem = {
+  description: string
+}
+
+export type SectionConceptsProps = {
+  title: string
+  conceptItems: [ConceptItem]
+}
+
 // LandingPage props
 export type LandingPageProps = {
   logo: LogoProps
   header: HeaderProps
   sectionAboutProject: SectionAboutProjectProps
   sectionTech: SectionTechProps
+  sectionConcepts: SectionConceptsProps
 }
