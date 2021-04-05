@@ -88,6 +88,24 @@ const GET_LANGIND_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment sectionAboutUs on LandingPage {
+    sectionAboutUs {
+      title
+      authors {
+        name
+        role
+        description
+        image {
+          ...image
+        }
+        socialLinks {
+          title
+          url
+        }
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
@@ -98,6 +116,7 @@ const GET_LANGIND_PAGE = /* GraphQL */ `
       ...sectionModules
       ...sectionAgenda
       ...pricingBox
+      ...sectionAboutUs
     }
   }
 `
