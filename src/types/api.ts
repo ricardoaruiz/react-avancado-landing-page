@@ -33,7 +33,7 @@ export type TechIcon = {
 
 export type SectionTechProps = {
   title: string
-  techIcons: [TechIcon]
+  techIcons: TechIcon[]
 }
 
 export type ConceptItem = {
@@ -42,7 +42,7 @@ export type ConceptItem = {
 
 export type SectionConceptsProps = {
   title: string
-  conceptItems: [ConceptItem]
+  conceptItems: ConceptItem[]
 }
 
 export type Module = {
@@ -53,7 +53,7 @@ export type Module = {
 
 export type SectionModulesProps = {
   title: string
-  modules: [Module]
+  modules: Module[]
 }
 
 export type SectionAgendaProps = {
@@ -69,7 +69,7 @@ export type PricingBoxProps = {
   totalPrice: number
   numberInstallments: number
   priceInstallment: number
-  benefits: [Benefit]
+  benefits: Benefit[]
   button: ButtonProps
 }
 
@@ -83,12 +83,12 @@ export type ProfileProps = {
   role: string
   description: string
   image: ImageProps
-  socialLinks: [SocialLink]
+  socialLinks: SocialLink[]
 }
 
 export type SectionAboutUsProps = {
   title: string
-  authors: [ProfileProps]
+  authors: ProfileProps[]
 }
 
 export type ReviewProps = {
@@ -99,7 +99,7 @@ export type ReviewProps = {
 
 export type SectionReviewsProps = {
   title: string
-  reviews: [ReviewProps]
+  reviews: ReviewProps[]
 }
 
 export type QuestionProps = {
@@ -109,7 +109,7 @@ export type QuestionProps = {
 
 export type SectionFaqProps = {
   title: string
-  questions: [QuestionProps]
+  questions: QuestionProps[]
 }
 
 // LandingPage props
